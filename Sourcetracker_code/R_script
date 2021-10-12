@@ -1,0 +1,29 @@
+#### Sourcetracker R code for bar plot ####
+
+#### packages #### 
+
+library(dplyr)
+library(tidyr)
+library(ggthemes)
+library(extrafont)
+library(scales)
+library(reshape2)
+library(ggplot2)
+library(RColorBrewer)
+
+#### import data #### 
+
+British_ST<-read.csv("British-Sourcetracker.csv", header = TRUE)
+
+British_ST_melt<-melt(British_ST, id=c("SampleID"))
+
+svg("SourceTracker_wAncient.svg")
+ggplot() + geom_bar(aes(y = British_ST_melt$value, x = British_ST_melt$SampleID, fill = British_ST_melt$variable), data = British_ST_melt, stat = "identity") + ggtitle("Sourcetracker results") +
+  labs(x = "Samples", y = "Percentage") +
+  theme_bw() +
+  scale_fill_manual(name = "Environment", values = c("lightsalmon3", "lightskyblue", "thistle", "darkseagreen","gray44", "turquoise",  "seashell4")) +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()
+        )
+
+dev.off()
