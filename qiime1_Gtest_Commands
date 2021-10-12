@@ -1,0 +1,155 @@
+## OPENING QIIME1
+
+
+
+qsub -A open -l walltime=3:00:00 -l nodes=1:ppn=2 -I
+module load anaconda3/2020.07
+#conda create -n qiime1 python=2.7 qiime matplotlib-1.4.3 mock nose -c bioconda
+#conda install pandas
+source activate qiime1
+
+### GTEST
+
+#Blood_Disorder
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt_gtest.txt -c Blood_Disorder -s g_test -o gtest_Blood_Disorder
+
+#Nonspecific Periostitis
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c Non_specific_periostitis -s g_test -o gtest_Non_specific_periostitis
+
+#Schmorls Nodes
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c VertebralPathology_SchmorlsNodes -s g_test -o gtest_VertebralPathology_SchmorlsNodes
+
+#Joint porosity 
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c Joint_Porosit1 -s g_test -o gtest_Joint_Porosit1
+
+#CalculusFragmentSizeBin
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c JCalculusFragmentSizeBin -s g_test -o gtest_CalculusFragmentSizeBin
+
+#BuccalLingual
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c BuccalLingual -s g_test -o gtest_BuccalLingual
+
+#Tooth
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c Tooth -s g_test -o gtest_Tooth
+
+#SubSupragingival
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c SubSupragingival -s g_test -o gtest_SubSupragingival
+
+#MaxillaMandible
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt t -c MaxillaMandible -s g_test -o gtest_MaxillaMandible
+
+#Left_Right_LateralPlane
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m MoL_Metadata_Cleaned_Variables_12_8_2020_gtest.txt  -c Left_Right_LateralPlane -s g_test -o gtest_Left_Right_LateralPlane
+
+##########################################################################################
+
+### GTEST FOR MOLAR, INCSIOR, BICUSPID SUBGROUPS
+## FILTERED METADATA TABLES SO ONLY RELEVANT SAMPLES ARE INCLUDED
+
+##########################################################################################
+
+### MOLARS
+#Blood_Disorder
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c Blood_Disorder -s g_test -o gtest_Molar_Blood_Disorder
+
+#Nonspecific Periostitis
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt  -c Non_specific_periostitis -s g_test -o gtest_Molar_Non_specific_periostitis
+
+#Schmorls Nodes
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c VertebralPathology_SchmorlsNodes -s g_test -o gtest_Molar_VertebralPathology_SchmorlsNodes
+
+#Joint porosity 
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt  -c Joint_Porosit1 -s g_test -o gtest_Molar_Joint_Porosit1
+
+#CalculusFragmentSizeBin
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c JCalculusFragmentSizeBin -s g_test -o gtest_Molar_CalculusFragmentSizeBin
+
+#MaxillaMandible
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c MaxillaMandible -s g_test -o gtest_Molar_MaxillaMandible
+
+#Left_Right_LateralPlane
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Molar_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c Left_Right_LateralPlane -s g_test -o gtest_Molar_Left_Right_LateralPlane
+
+##########################################################################################
+
+### Bicuspids
+#Blood_Disorder
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c Blood_Disorder -s g_test -o gtest_Bicuspid_Blood_Disorder
+
+#Nonspecific Periostitis
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt  -c Non_specific_periostitis -s g_test -o gtest_Bicuspid_Non_specific_periostitis
+
+#Schmorls Nodes
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c VertebralPathology_SchmorlsNodes -s g_test -o gtest_Bicuspid_VertebralPathology_SchmorlsNodes
+
+#Joint porosity 
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt  -c Joint_Porosit1 -s g_test -o gtest_Bicuspid_Joint_Porosit1
+
+#CalculusFragmentSizeBin
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c JCalculusFragmentSizeBin -s g_test -o gtest_Bicuspid_CalculusFragmentSizeBin
+
+#MaxillaMandible
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c MaxillaMandible -s g_test -o gtest_Bicuspid_MaxillaMandible
+
+#Left_Right_LateralPlane
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Bicuspid_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c Left_Right_LateralPlane -s g_test -o gtest_Bicuspid_Left_Right_LateralPlane
+
+##########################################################################################
+
+### Incisors
+#Blood_Disorder
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c Blood_Disorder -s g_test -o gtest_Incisor_Blood_Disorder
+
+#Nonspecific Periostitis
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt  -c Non_specific_periostitis -s g_test -o gtest_Incisor_Non_specific_periostitis
+
+#Schmorls Nodes
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c VertebralPathology_SchmorlsNodes -s g_test -o gtest_Incisor_VertebralPathology_SchmorlsNodes
+
+#Joint porosity 
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt  -c Joint_Porosit1 -s g_test -o gtest_Incisor_Joint_Porosit1
+
+#CalculusFragmentSizeBin
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c JCalculusFragmentSizeBin -s g_test -o gtest_Incisor_CalculusFragmentSizeBin
+
+#MaxillaMandible
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c MaxillaMandible -s g_test -o gtest_Incisor_MaxillaMandible
+
+#Left_Right_LateralPlane
+group_significance.py -i 1_ALL_MoL_0_MEGAN_Filtered.biom -m Incisor_Lingual_Supra_Cleaned_Variables_G_Test_12_13_2020.txt -c Left_Right_LateralPlane -s g_test -o gtest_Incisor_Left_Right_LateralPlane
+
+##########################################################################################
+#2.28.2021 Cultural and Health ADONIS G-Tests
+
+#Species
+
+group_significance.py -i Species_Overall_Pathology_Cat -m All_Metadata_2282021.txt -c Overall_Pathology -s g_test -o gtest_Species_Overall_Pathology
+
+group_significance.py -i Species_Non_specific_periostitis -m All_Metadata_2282021.txt -c Non_specific_periostitis -s g_test -o gtest_Species_Non_specific_periostitis
+
+group_significance.py -i Species_Joint_Porosit1 -m All_Metadata_2282021.txt -c Joint_Porosit1 -s g_test -o gtest_Species_Joint_Porosit1
+
+group_significance.py -i Species_Joint_Osteoph1ticLipping -m All_Metadata_2282021.txt -c Joint_Osteoph1ticLipping -s g_test -o gtest_Species_Joint_Osteoph1ticLipping
+
+group_significance.py -i Species_Overall_Joint -m All_Metadata_2282021.txt -c Overall_Joint -s g_test -o gtest_Species_Overall_Joint
+
+group_significance.py -i Species_Periodontitis_YN -m All_Metadata_2282021.txt -c Periodontitis_YN -s g_test -o gtest_Species_Periodontitis_YN
+
+#Genus
+
+group_significance.py -i Genus_Overall_Pathology_Cat -m All_Metadata_2282021.txt -c Overall_Pathology -s g_test -o gtest_Genus_Overall_Pathology
+
+group_significance.py -i Genus_Non_specific_periostitis -m All_Metadata_2282021.txt -c Non_specific_periostitis -s g_test -o gtest_Genus_Non_specific_periostitis
+
+group_significance.py -i Genus_Joint_Porosit1 -m All_Metadata_2282021.txt -c Joint_Porosit1 -s g_test -o gtest_Genus_Joint_Porosit1
+
+group_significance.py -i Genus_Joint_Osteoph1ticLipping -m All_Metadata_2282021.txt -c Joint_Osteoph1ticLipping -s g_test -o gtest_Genus_Joint_Osteoph1ticLipping
+
+group_significance.py -i Genus_Overall_Joint -m All_Metadata_2282021.txt -c Overall_Joint -s g_test -o gtest_Genus_Overall_Joint
+
+group_significance.py -i Genus_Periodontitis_YN -m All_Metadata_2282021.txt -c Periodontitis_YN -s g_test -o gtest_Genus_Periodontitis_YN
+
+
+
+
+
+
