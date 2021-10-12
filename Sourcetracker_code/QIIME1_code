@@ -1,0 +1,26 @@
+#!/bin/bash 
+
+## Sourcetracker (v.1) analysis on British samples 
+
+# Rarefy to 4773 - EBC_MALT_ALL 
+
+single_rarefaction.py -i Combined-British-samples-species-json.biom -o Combined-British-species-4773.biom -d 4733
+
+biom convert -i Combined-British-species-4773.biom -o Combined-British-species-4773.txt --to-tsv
+
+export SOURCETRACKER_PATH=/Users/svw5689/bin/sourcetracker-1.0.1
+
+Rscript /Users/svw5689/bin/sourcetracker-1.0.1/sourcetracker_for_qiime.r \
+-t Taxon-table-British.txt -m British_Mapping_File.txt -o British_sourcetracker_species \
+-r 0 --train_rarefaction 0
+
+## Sourcetracker analysis without ancient calculus samples 
+
+filter_samples_from_otu_table.py -i Combined-British-samples-species-json.biom \
+-o No-Calculus-SOURCETRACKER-08SEP21.biom -m British_Mapping_File_06MAY21.txt -s 'Env:*,!AncientCalculus'
+
+##### SOURCETRACKER NO ANCIENT CALCULUS ###
+
+Rscript /Users/svw5689/bin/sourcetracker-1.0.1/sourcetracker_for_qiime.r \
+-t Taxon-table-British.txt -m British_Mapping_File.txt -o British_2_sourcetracker_species \
+-r 0 --train_rarefaction 0
