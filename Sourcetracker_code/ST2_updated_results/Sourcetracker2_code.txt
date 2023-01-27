@@ -1,0 +1,9 @@
+# code for Sourcetracker analysis 
+
+sourcetracker2 gibbs -i British_Genus_All_Samples.txt \
+-m Mapping-ST-file.txt --alpha2 1.000 \
+-o sourcetracker-results --sink_rarefaction_depth 2000 --source_rarefaction_depth 2000
+
+sourcetracker2 gibbs -i British_Genus_All_Samples.txt \
+-m Mapping-ST-file.txt --alpha2 1.000 \
+-o sourcetracker-results-wAncientCalculus --sink_rarefaction_depth 2000 --source_rarefaction_depth 2000
